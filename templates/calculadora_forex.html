@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Calculadora Múltipla Forex | StrongerCity{% endblock %}
+
+{% block content %}
+<main class="internal-shell calculator-page">
+  {% include "_internal_nav.html" %}
+
+  <header class="internal-header container-wide">
+    <div class="page-number">01</div>
+    <div class="header-copy">
+      <p class="eyebrow"><span></span> FERRAMENTA STRONGERCITY</p>
+      <h1 class="page-title">CALCULADORA <em>MÚLTIPLA FOREX</em></h1>
+      <p class="header-subtitle">Calcule o valor de entrada dividindo o risco de cada mesa pelos pontos de stop.</p>
+    </div>
+  </header>
+
+  <div class="container-wide internal-quotes">{% include "_quotes.html" %}</div>
+
+  <section class="calculator-panel container" id="calculator-app">
+    <div class="step-indicator" aria-label="Etapas da calculadora">
+      <span class="step-dot is-active" data-step-dot="1">1</span>
+      <span class="step-line"></span>
+      <span class="step-dot" data-step-dot="2">2</span>
+      <span class="step-line"></span>
+      <span class="step-dot" data-step-dot="3">3</span>
+    </div>
+
+    <div class="calculator-step" data-step="1">
+      <p class="section-kicker">ETAPA 01 • CONFIGURAÇÃO</p>
+      <h2>Defina sua operação</h2>
+      <p class="section-copy">Informe a quantidade de mesas e a distância total do stop em pontos.</p>
+
+      <div class="field-grid two-cols">
+        <label class="field-card">
+          <span>Quantas mesas você opera?</span>
+          <input id="table-count" inputmode="numeric" type="number" min="1" max="10" placeholder="1 a 10">
+        </label>
+        <label class="field-card">
+          <span>Quantos pontos de stop?</span>
+          <input id="stop-points" inputmode="decimal" type="text" placeholder="Ex.: 500">
+        </label>
+      </div>
+      <p class="form-message" id="step-one-message" role="alert"></p>
+      <button class="primary-cta" id="calculator-next" type="button">Avançar <span>→</span></button>
+    </div>
+
+    <div class="calculator-step is-hidden" data-step="2">
+      <p class="section-kicker">ETAPA 02 • RISCO POR MESA</p>
+      <h2>Informe o valor de risco</h2>
+      <p class="section-copy" id="stop-summary"></p>
+      <div class="desk-grid" id="desk-inputs"></div>
+      <p class="form-message" id="step-two-message" role="alert"></p>
+      <div class="button-row">
+        <button class="ghost-cta" id="calculator-back" type="button">Voltar</button>
+        <button class="primary-cta" id="calculator-calc" type="button">Calcular <span>→</span></button>
+      </div>
+    </div>
+
+    <div class="calculator-step is-hidden" data-step="3">
+      <p class="section-kicker">ETAPA 03 • RESULTADO</p>
+      <h2>Cálculo por mesa</h2>
+      <p class="section-copy" id="result-stop-summary"></p>
+      <div class="result-grid" id="calculator-results"></div>
+      <div class="formula-confirmation">
+        <strong>FÓRMULA UTILIZADA</strong>
+        <span>Risco em US$ ÷ Pontos de stop = Valor de entrada</span>
+      </div>
+      <button class="ghost-cta" id="calculator-reset" type="button">Novo cálculo</button>
+    </div>
+  </section>
+
+  <section class="tool-note container">
+    <strong>Como o cálculo funciona</strong>
+    <p>Para cada mesa, o valor informado em dólares é dividido pela quantidade de pontos de stop. Exemplo: US$ 100 ÷ 500 pontos = 0,20.</p>
+  </section>
+
+  <div class="page-actions container"><a class="text-link" href="{{ url_for('home') }}">← Voltar para o início</a></div>
+</main>
+{% endblock %}
+
+{% block scripts %}<script src="{{ url_for('static', filename='js/calculator.js') }}"></script>{% endblock %}

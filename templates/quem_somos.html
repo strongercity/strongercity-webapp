@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Quem Somos | StrongerCity{% endblock %}
+
+{% block content %}
+<main class="internal-shell about-page">
+  {% include "_internal_nav.html" %}
+  <header class="about-header container-wide">
+    <div class="about-logo-wrap"><img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="StrongerCity Trading Center"></div>
+    <div class="about-title-wrap"><p class="eyebrow"><span></span> STRONGERCITY • DESDE 2019</p><h1 class="page-title centered">NOSSA <em>HISTÓRIA</em></h1><p class="header-subtitle">Conhecimento, disciplina e oportunidade.</p></div>
+  </header>
+
+  <article class="story-card container">
+    <p>A StrongerCity foi fundada por <strong>Leonardo Brave</strong> em 2019, durante um dos períodos mais difíceis de sua vida. Foi em meio às adversidades que Leonardo conheceu o mercado financeiro, o Forex e começou uma jornada de estudos, experiências e desenvolvimento dentro desse universo.</p>
+    <p>O que inicialmente era uma busca por conhecimento tornou-se um propósito muito maior: criar oportunidades, compartilhar conhecimento e dar direção a jovens que desejam construir um futuro através da educação financeira e do desenvolvimento profissional.</p>
+    <p>Em 2021, Leonardo teve experiências profissionais com empresas do setor de investimentos na região de Cabo Frio, Rio de Janeiro. Durante esse período, teve contato com diferentes modelos de negócio envolvendo investimentos e captação de recursos, adquirindo experiências que contribuíram para definir aquilo que a StrongerCity seria — e também aquilo que ela não seria.</p>
+    <div class="story-highlight"><span>PRINCÍPIO</span>A StrongerCity não foi criada para captar dinheiro de terceiros ou prometer rendimentos.</div>
+    <p>Seu propósito é formar e desenvolver traders, compartilhar conhecimento sobre o mercado, criar uma equipe profissional e, dentro da estrutura adequada e das normas aplicáveis, desenvolver operações utilizando capital próprio da empresa.</p>
+    <p>Para Leonardo Brave, um trader não é formado apenas por estratégias ou resultados. É necessário desenvolver disciplina, gestão de risco, inteligência emocional, responsabilidade, constância e visão de longo prazo.</p>
+    <p>A visão da StrongerCity também vai além do mercado financeiro. O projeto nasceu com a intenção de abrir portas, identificar talentos e oferecer oportunidades principalmente para jovens que possuem potencial, mas muitas vezes não tiveram direção ou acesso às oportunidades certas.</p>
+    <p>Uma ideia que nasceu durante uma fase difícil começou a ganhar propósito, estrutura e visão de futuro.</p>
+    <p>Hoje, a StrongerCity continua sendo construída sobre o mesmo princípio que motivou Leonardo Brave desde o início:</p>
+    <blockquote>Transformar conhecimento em oportunidade e criar caminhos para que outras pessoas também possam crescer.</blockquote>
+    <p class="story-signature">StrongerCity — Conhecimento. Disciplina. Oportunidade.</p>
+  </article>
+  <div class="page-actions container"><a class="text-link" href="{{ url_for('home') }}">← Voltar para o início</a></div>
+</main>
+{% endblock %}

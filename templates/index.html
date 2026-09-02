@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}StrongerCity | Trading Center{% endblock %}
+
+{% block content %}
+<main class="home-shell">
+  <header class="site-header container-wide">
+    <a class="header-brand" href="{{ url_for('home') }}" aria-label="StrongerCity — início">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="StrongerCity">
+    </a>
+    <nav class="header-nav" aria-label="Navegação principal">
+      <a href="#acessos">Acessos</a>
+      <a href="{{ url_for('calculadora_forex') }}">Calculadora</a>
+      <a href="{{ url_for('forex_sessions') }}">Sessões</a>
+      <a href="{{ url_for('dolar_hoje') }}">Dólar hoje</a>
+      <a href="{{ url_for('quem_somos') }}">Quem somos</a>
+    </nav>
+    <a class="header-cta" href="https://t.me/+xu9lHO0XxTU4MjBh" target="_blank" rel="noopener">Entrar na comunidade</a>
+  </header>
+
+  <div class="home-top container-wide" aria-label="Resumo do mercado">
+    <div class="market-heading"><span class="live-pulse" aria-hidden="true"></span><span>MERCADO AO VIVO</span></div>
+    {% include "_quotes.html" %}
+  </div>
+
+  <section class="hero container-wide" aria-labelledby="home-title">
+    <div class="hero-content">
+      <p class="eyebrow"><span></span> STRONGERCITY • DESDE 2019</p>
+      <h1 id="home-title" class="hero-title">BEM-VINDO À <em>FAMÍLIA</em></h1>
+      <p class="hero-copy">Educação, disciplina e gestão de risco para quem deseja compreender o mercado e evoluir com responsabilidade.</p>
+      <p class="hero-copy hero-copy-small">Compartilhamos nossa rotina, estudos e conteúdo gratuito — sem sinais, promessas de resultado ou indicação de investimento.</p>
+      <div class="hero-actions">
+        <a class="primary-cta" href="{{ url_for('calculadora_forex') }}">Usar calculadora <span>↗</span></a>
+        <a class="secondary-cta" href="{{ url_for('forex_sessions') }}">Ver sessões Forex</a>
+      </div>
+      <div class="hero-proof" aria-label="Princípios StrongerCity">
+        <div><strong>7+</strong><span>Anos de experiência</span></div>
+        <div><strong>100%</strong><span>Foco educacional</span></div>
+        <div><strong>1:3</strong><span>Gestão e disciplina</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="StrongerCity Trading Center">
+      <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+      <span class="visual-label"></span>
+      <div class="home-logo-frame"><img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="StrongerCity Trading Center"></div>
+      <div class="visual-status"><span></span> CONHECIMENTO EM MOVIMENTO</div>
+    </div>
+  </section>
+
+  <section class="access-section container-wide" id="acessos">
+    <div class="section-heading">
+      <div><p class="eyebrow"><span></span> CENTRAL STRONGERCITY</p><h2>TUDO O QUE VOCÊ PRECISA,<br><em>EM UM SÓ LUGAR.</em></h2></div>
+      <p>Ferramentas, comunidade e conteúdo organizados para facilitar sua rotina no mercado.</p>
+    </div>
+
+    <nav class="access-grid" aria-label="Acessos StrongerCity">
+      <a class="access-card access-featured" href="{{ url_for('calculadora_forex') }}"><span class="access-index">01</span><span class="access-tag">FERRAMENTA</span><h3>Calculadora Forex</h3><p>Calcule entradas de até dez mesas dividindo o risco pelos pontos de stop.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card access-featured" href="{{ url_for('forex_sessions') }}"><span class="access-index">02</span><span class="access-tag">MERCADO</span><h3>Sessões Forex</h3><p>Acompanhe abertura, fechamento e tempo restante em Brasília.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="{{ url_for('dolar_hoje') }}"><span class="access-index">03</span><span class="access-tag">CONVERSOR</span><h3>Dólar hoje</h3><p>Converta dólar e real usando a cotação atual.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="https://www.instagram.com/strongercityofc" target="_blank" rel="noopener"><span class="access-index">04</span><span class="access-tag">SOCIAL</span><h3>Instagram</h3><p>Conteúdo, rotina e atualizações diárias.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="https://discord.com/channels/1367684414795943966/1367684415370690592" target="_blank" rel="noopener"><span class="access-index">05</span><span class="access-tag">COMUNIDADE</span><h3>Discord</h3><p>Participe do ambiente oficial da equipe.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="https://t.me/+xu9lHO0XxTU4MjBh" target="_blank" rel="noopener"><span class="access-index">06</span><span class="access-tag">COMUNIDADE</span><h3>Telegram</h3><p>Receba comunicados e conteúdos internos.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="https://www.youtube.com/@StrongerCity" target="_blank" rel="noopener"><span class="access-index">07</span><span class="access-tag">CONTEÚDO</span><h3>YouTube</h3><p>Estudos e materiais em vídeo.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener"><span class="access-index">08</span><span class="access-tag">FERRAMENTA</span><h3>Calendário econômico</h3><p>Acompanhe notícias e eventos relevantes.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="https://www.metatrader5.com/pt/download" target="_blank" rel="noopener"><span class="access-index">09</span><span class="access-tag">PLATAFORMA</span><h3>MetaTrader 5</h3><p>Acesse o download oficial da plataforma.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="https://myhtrader.hmarkets.com/purchasechallenge?affiliateId=3379&amp;lang=pt" target="_blank" rel="noopener"><span class="access-index">10</span><span class="access-tag">PARCEIRO</span><h3>Hantec Trader</h3><p>Use o cupom STRONGERCITY e obtenha 10% de desconto.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="https://www.conflictly.app/" target="_blank" rel="noopener"><span class="access-index">11</span><span class="access-tag">APLICATIVO</span><h3>Conflictly App</h3><p>Acesse a plataforma externa pelo canal oficial.</p><span class="access-arrow">↗</span></a>
+      <a class="access-card" href="{{ url_for('quem_somos') }}"><span class="access-index">12</span><span class="access-tag">INSTITUCIONAL</span><h3>Quem somos</h3><p>Conheça nossa história, princípios e propósito.</p><span class="access-arrow">↗</span></a>
+    </nav>
+  </section>
+</main>
+{% endblock %}

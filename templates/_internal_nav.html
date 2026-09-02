@@ -1,0 +1,12 @@
+<nav class="subpage-nav container-wide" aria-label="Navegação principal">
+  <a class="subpage-brand" href="{{ url_for('home') }}" aria-label="StrongerCity — início">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="StrongerCity">
+  </a>
+  <div class="subpage-links">
+    <a href="{{ url_for('home') }}">Início</a>
+    <a href="{{ url_for('calculadora_forex') }}">Calculadora</a>
+    <a href="{{ url_for('forex_sessions') }}">Sessões</a>
+    <a href="{{ url_for('dolar_hoje') }}">Dólar hoje</a>
+    <a href="{{ url_for('quem_somos') }}">Quem somos</a>
+  </div>
+</nav>
