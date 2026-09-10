@@ -1,0 +1,7 @@
+let usdbrl=null;
+const rateEl=document.getElementById('converter-rate'), statusEl=document.getElementById('converter-status'), amountEl=document.getElementById('amount'), dirEl=document.getElementById('direction'), resultEl=document.getElementById('converted-value'), detailEl=document.getElementById('conversion-detail'), prefixEl=document.getElementById('input-prefix');
+function moneyBRL(v){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v)}
+function moneyUSD(v){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'USD'}).format(v)}
+function convert(){if(!usdbrl)return; const amount=Number(amountEl.value||0),usdToBrl=dirEl.value==='usd-brl'; const out=usdToBrl?amount*usdbrl:amount/usdbrl; resultEl.textContent=usdToBrl?moneyBRL(out):moneyUSD(out); detailEl.textContent=usdToBrl?`${moneyUSD(amount)} × ${usdbrl.toFixed(2)} = ${moneyBRL(out)}`:`${moneyBRL(amount)} ÷ ${usdbrl.toFixed(2)} = ${moneyUSD(out)}`; prefixEl.textContent=usdToBrl?'US$':'R$'}
+async function loadRate(){try{const r=await fetch('/api/quotes',{cache:'no-store'}),d=await r.json();if(!d.ok||!d.usdbrl)throw new Error();usdbrl=Number(d.usdbrl);rateEl.textContent=moneyBRL(usdbrl);statusEl.textContent='Cotação de mercado atualizada automaticamente';convert()}catch(e){statusEl.textContent='Cotação indisponível no momento'}}
+document.getElementById('convert-btn').addEventListener('click',convert);amountEl.addEventListener('input',convert);dirEl.addEventListener('change',convert);loadRate();setInterval(loadRate,30000);

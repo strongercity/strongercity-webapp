@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Forex Sessions | StrongerCity{% endblock %}
+
+{% block content %}
+<main class="internal-shell sessions-page">
+  {% include "_internal_nav.html" %}
+  <header class="internal-header container-wide">
+    <div class="page-number">02</div>
+    <div class="header-copy"><p class="eyebrow"><span></span> RELÓGIO DE MERCADO</p><h1 class="page-title">FOREX <em>SESSIONS</em></h1><p class="header-subtitle">Acompanhe as principais sessões no horário de Brasília.</p></div>
+  </header>
+
+  <section class="session-clock container-wide"><span>BRASÍLIA • BRT</span><strong id="brasilia-clock">--:--:--</strong><small>Atualização em tempo real</small></section>
+
+  <section class="sessions-grid container-wide" id="sessions-grid">
+    <article class="session-card" data-open="19:00" data-close="03:00" data-name="SIDNEY"><div class="session-head"><span>SYD</span><h2>SIDNEY</h2><i class="session-state">--</i></div><div class="session-time"><div><small>ABERTURA</small><strong>19:00</strong></div><div><small>FECHAMENTO</small><strong>03:00</strong></div></div><div class="countdown"><small class="countdown-label">CALCULANDO</small><strong class="countdown-value">--:--:--</strong></div></article>
+    <article class="session-card" data-open="21:00" data-close="06:00" data-name="TOKYO"><div class="session-head"><span>TYO</span><h2>TOKYO</h2><i class="session-state">--</i></div><div class="session-time"><div><small>ABERTURA</small><strong>21:00</strong></div><div><small>FECHAMENTO</small><strong>06:00</strong></div></div><div class="countdown"><small class="countdown-label">CALCULANDO</small><strong class="countdown-value">--:--:--</strong></div></article>
+    <article class="session-card" data-open="04:00" data-close="13:00" data-name="LONDRES"><div class="session-head"><span>LDN</span><h2>LONDRES</h2><i class="session-state">--</i></div><div class="session-time"><div><small>ABERTURA</small><strong>04:00</strong></div><div><small>FECHAMENTO</small><strong>13:00</strong></div></div><div class="countdown"><small class="countdown-label">CALCULANDO</small><strong class="countdown-value">--:--:--</strong></div></article>
+    <article class="session-card" data-open="09:00" data-close="18:00" data-name="NEW YORK"><div class="session-head"><span>NYC</span><h2>NEW YORK</h2><i class="session-state">--</i></div><div class="session-time"><div><small>ABERTURA</small><strong>09:00</strong></div><div><small>FECHAMENTO</small><strong>18:00</strong></div></div><div class="countdown"><small class="countdown-label">CALCULANDO</small><strong class="countdown-value">--:--:--</strong></div></article>
+  </section>
+
+  <section class="tool-note container-wide"><strong>Observação</strong><p>Horários fixos definidos pela StrongerCity em Brasília. Mudanças internacionais de horário de verão podem alterar a relação com o pregão local de cada país.</p></section>
+  <div class="page-actions container"><a class="text-link" href="{{ url_for('home') }}">← Voltar para o início</a></div>
+</main>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/sessions.js') }}"></script>{% endblock %}

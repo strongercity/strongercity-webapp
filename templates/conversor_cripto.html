@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Conversor Cripto | StrongerCity{% endblock %}
+
+{% block content %}
+<main class="internal-shell crypto-page">
+  {% include "_internal_nav.html" %}
+
+  <header class="internal-header container-wide">
+    <div class="page-number">13</div>
+    <div class="header-copy">
+      <p class="eyebrow"><span></span> CONVERSOR STRONGERCITY</p>
+      <h1 class="page-title">CRIPTO <em>↔ USD</em></h1>
+      <p class="header-subtitle">Conversão indicativa entre dólar e as principais criptomoedas selecionadas pela StrongerCity.</p>
+    </div>
+  </header>
+
+  <section class="crypto-converter-shell container-wide" id="crypto-converter">
+    <div class="crypto-rate-panel">
+      <span class="panel-label" id="crypto-rate-label">COTAÇÃO ATUAL • BTC/USD</span>
+      <strong id="crypto-rate">US$ --</strong>
+      <small id="crypto-status">Buscando cotações...</small>
+      <div class="crypto-symbol-watermark" id="crypto-watermark">BTC</div>
+    </div>
+
+    <div class="converter-form crypto-form">
+      <div class="tool-intro">
+        <span>CONVERSOR DE CRIPTOMOEDAS</span>
+        <h2>Calcule o valor</h2>
+        <p>Escolha o ativo, a direção da conversão e informe o valor desejado.</p>
+      </div>
+
+      <label for="crypto-asset">ATIVO</label>
+      <select id="crypto-asset">
+        {% for symbol, asset in assets.items() %}
+        <option value="{{ symbol }}">{{ symbol }} • {{ asset.name }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="crypto-direction">CONVERSÃO</label>
+      <select id="crypto-direction">
+        <option value="crypto-usd">Cripto → USD</option>
+        <option value="usd-crypto">USD → Cripto</option>
+      </select>
+
+      <label for="crypto-amount">VALOR</label>
+      <div class="money-input"><span id="crypto-input-prefix">BTC</span><input id="crypto-amount" type="number" min="0" step="any" value="1" inputmode="decimal"></div>
+      <button class="primary-cta convert-btn" id="crypto-convert-btn" type="button">Converter agora <span>→</span></button>
+    </div>
+
+    <div class="conversion-result crypto-result">
+      <small>VALOR CONVERTIDO</small>
+      <strong id="crypto-converted-value">--</strong>
+      <p id="crypto-conversion-detail">A cotação será atualizada automaticamente.</p>
+    </div>
+  </section>
+
+  <section class="crypto-market container-wide">
+    <div class="crypto-market-head">
+      <div><span>COTAÇÕES SUPORTADAS</span><h2>Mercado cripto</h2></div>
+      <small>USD • atualização automática</small>
+    </div>
+    <div class="crypto-rates-grid" id="crypto-rates-grid"></div>
+  </section>
+
+  <section class="tool-note container-wide">
+    <strong>Informação</strong>
+    <p>As cotações são indicativas e podem apresentar atraso ou pequenas diferenças entre exchanges. Esta ferramenta não constitui recomendação de investimento.</p>
+  </section>
+
+  <div class="page-actions container"><a class="text-link" href="{{ url_for('home') }}">← Voltar para o início</a></div>
+</main>
+{% endblock %}
+
+{% block scripts %}<script src="{{ url_for('static', filename='js/crypto_converter.js') }}"></script>{% endblock %}
